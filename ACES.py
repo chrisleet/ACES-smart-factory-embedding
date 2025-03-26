@@ -48,7 +48,9 @@ while (time() - start_time) < max_time and timesteps <= max_timesteps:
   print(f"timesteps:{timesteps} objective:{timesteps_to_objective[timesteps]} runtime:{timesteps_to_runtime[timesteps]}")
 
   # (4) Export plan
-  wdp.export_plan(config, procedure, factory)
+  if timesteps_to_objective[timesteps] == max(timesteps_to_objective.values()):
+    print(f"timesteps:{timesteps} exporting...")
+    wdp.export_plan(config, procedure, factory)
 
   timesteps += 1
 
