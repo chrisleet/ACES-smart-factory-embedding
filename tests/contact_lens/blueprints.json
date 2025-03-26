@@ -1,0 +1,24 @@
+{
+  "blueprints": [
+    {
+      "mtype": "bin",
+      "pname_to_runtime": { "retrieve_rod": 1},
+      "footprint": ["o","a"]
+    },
+    {
+      "mtype": "lathe",
+      "pname_to_runtime": { "cutting": 1, "mould_on_lathe" : 1, "polish" : 1},
+      "footprint": ["iao"]
+    },
+    {
+      "mtype": "hydrator",
+      "pname_to_runtime": {"hydrate": 1},
+      "footprint": ["iao"]
+    },
+    {
+      "mtype": "packager",
+      "pname_to_runtime": {"package": 1},
+      "footprint": ["ai"]
+    }
+  ]
+}

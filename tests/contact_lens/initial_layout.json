@@ -1,0 +1,139 @@
+{
+  "floorplan": [
+    "...................",
+    "...................",
+    "...................",
+    "...................",
+    "...................",
+    "...................",
+    "..................."
+  ],
+  "machines": [
+    
+    { "mtype": "bin",
+      "pos": [1,0],
+      "orientation": 0
+    },
+
+    { "mtype": "bin",
+      "pos": [5,0],
+      "orientation": 0
+    },
+
+    { "mtype": "bin",
+      "pos": [9,0],
+      "orientation": 0
+    },
+
+    { "mtype": "bin",
+      "pos": [13,0],
+      "orientation": 0
+    },
+
+    { "mtype": "bin",
+      "pos": [17,0],
+      "orientation": 0
+    },
+
+
+
+    { "mtype": "lathe",
+      "pos": [1,2],
+      "orientation": 0
+    },
+
+    { "mtype": "lathe",
+      "pos": [5,2],
+      "orientation": 0
+    },
+
+    { "mtype": "lathe",
+      "pos": [9,2],
+      "orientation": 0
+    },
+
+    { "mtype": "lathe",
+      "pos": [13,2],
+      "orientation": 0
+    },
+
+    { "mtype": "lathe",
+      "pos": [17,2],
+      "orientation": 0
+    },
+
+
+
+    { "mtype": "lathe",
+      "pos": [1,3],
+      "orientation": 0
+    },
+
+    { "mtype": "lathe",
+      "pos": [5,3],
+      "orientation": 0
+    },
+
+    { "mtype": "lathe",
+      "pos": [9,3],
+      "orientation": 0
+    },
+
+    { "mtype": "lathe",
+      "pos": [13,3],
+      "orientation": 0
+    },
+
+    { "mtype": "lathe",
+      "pos": [17,3],
+      "orientation": 0
+    },
+
+
+
+     { "mtype": "hydrator",
+      "pos": [5,5],
+      "orientation": 0
+    },
+
+    { "mtype": "hydrator",
+      "pos": [9,5],
+      "orientation": 0
+    },
+
+    { "mtype": "hydrator",
+      "pos": [13,5],
+      "orientation": 0
+    },
+
+    { "mtype": "hydrator",
+      "pos": [17,5],
+      "orientation": 0
+    },
+
+
+
+    { "mtype": "packager",
+      "pos": [5,6],
+      "orientation": 0
+    },
+
+    { "mtype": "packager",
+      "pos": [9,6],
+      "orientation": 0
+    },
+
+    { "mtype": "packager",
+      "pos": [13,6],
+      "orientation": 0
+    },
+
+    { "mtype": "packager",
+      "pos": [17,6],
+      "orientation": 0
+    }
+
+  ],
+  "timesteps": 6,
+  "agent_limit": 100
+}

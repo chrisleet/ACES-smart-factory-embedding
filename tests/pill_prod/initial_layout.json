@@ -1,0 +1,111 @@
+{
+  "floorplan": [
+    "................",
+    "................",
+    "................",
+    "................",
+    "................",
+    "................",
+    "................"
+  ],
+  "machines": [
+
+    { "mtype": "Feeder",
+      "pos": [0,0],
+      "orientation": 0 },
+
+    { "mtype": "Feeder",
+      "pos": [0,2],
+      "orientation": 0 },
+
+    { "mtype": "Feeder",
+      "pos": [0,4],
+      "orientation": 0 },
+
+    { "mtype": "Feeder",
+      "pos": [0,6],
+      "orientation": 0 },
+
+    { "mtype": "Feeder",
+      "pos": [2,0],
+      "orientation": 0 },
+    
+    { "mtype": "Feeder",
+      "pos": [5,0],
+      "orientation": 0 },
+
+    { "mtype": "Feeder",
+      "pos": [8,0],
+      "orientation": 0 },
+
+    { "mtype": "Feeder",
+      "pos": [11,0],
+      "orientation": 0 },
+
+    { "mtype": "Feeder",
+      "pos": [14,0],
+      "orientation": 0 },
+
+    { "mtype": "Mill",
+      "pos": [3,2],
+      "orientation": 0 },
+
+    { "mtype": "Mill",
+      "pos": [3,4],
+      "orientation": 0 },
+
+    { "mtype": "Mill",
+      "pos": [3,6],
+      "orientation": 0 },
+
+    { "mtype": "Mill",
+      "pos": [12,2],
+      "orientation": 0 },
+
+    { "mtype": "Mill",
+      "pos": [12,4],
+      "orientation": 0 },
+
+    { "mtype": "Mill",
+      "pos": [12,6],
+      "orientation": 0 },
+
+    { "mtype": "Mixer",
+      "pos": [6,2],
+      "orientation": 0 },
+
+    { "mtype": "Mixer",
+      "pos": [9,4],
+      "orientation": 0 },
+
+    { "mtype": "Mixer",
+      "pos": [6,6],
+      "orientation": 0 },
+
+    { "mtype": "Dryer",
+      "pos": [9,2],
+      "orientation": 0 },
+
+    { "mtype": "Dryer",
+      "pos": [6,4],
+      "orientation": 0 },
+
+    { "mtype": "Dryer",
+      "pos": [9,6],
+      "orientation": 0 },
+
+    { "mtype": "Tablet_Press",
+      "pos": [15,2],
+      "orientation": 0 },
+
+    { "mtype": "Tablet_Press",
+      "pos": [15,4],
+      "orientation": 0 },  
+
+    { "mtype": "Tablet_Press",
+      "pos": [15,6],
+      "orientation": 0 }
+  ],
+  "timesteps": 4,
+  "agent_limit": 100
+}

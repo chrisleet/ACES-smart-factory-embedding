@@ -1,0 +1,50 @@
+{
+  "tokens": [
+    "reagent1", "reagent2",
+    "intermediary1", "intermediary2", "intermediary3",
+    "solvent1",
+    "output"
+  ],
+  "processes": [
+    {
+      "name": "retrieve_first_reagent",
+      "inputs": [],
+      "outputs": ["reagent1"]
+    },
+    {
+      "name": "retrieve_second_reagent",
+      "inputs": [],
+      "outputs": ["reagent2"]
+    },
+    {
+      "name": "retrieve_first_solvent",
+      "inputs": [],
+      "outputs": ["solvent1"]
+    },
+    {
+      "name": "react_1",
+      "inputs": ["reagent1"],
+      "outputs": ["intermediary1"]
+    },
+    {
+      "name": "filter_1",
+      "inputs": ["intermediary1", "solvent1"],
+      "outputs": ["intermediary2"]
+    },
+    {
+      "name": "react_2",
+      "inputs": ["intermediary2"],
+      "outputs": ["intermediary3"]
+    },
+    {
+      "name": "lle_1",
+      "inputs": ["intermediary3", "reagent2"],
+      "outputs": ["output"]
+    },
+    {
+      "name": "store_output",
+      "inputs": ["output"],
+      "outputs": []
+    }
+  ]
+}

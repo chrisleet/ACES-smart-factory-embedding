@@ -1,0 +1,36 @@
+{
+  "blueprints": [
+    {
+      "mtype": "liquid_storage",
+      "pname_to_runtime": {
+        "retrieve_first_reagent": 1,
+        "retrieve_second_reagent": 1,
+        "retrieve_first_solvent": 1
+      },
+      "footprint": ["oa"]
+    },
+    {
+      "mtype": "chemical_reactor",
+      "pname_to_runtime": {
+        "react_1": 1,
+        "react_2": 1,
+        "lle_1": 1
+      },
+      "footprint": ["iao"]
+    },
+    {
+      "mtype": "filter",
+      "pname_to_runtime": {
+        "filter_1": 1
+      },
+      "footprint": ["iao"]
+    },
+    {
+      "mtype": "liquid_chute",
+      "pname_to_runtime": {
+        "store_output": 1
+      },
+      "footprint": ["ai"]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "floorplan": [
+    "...............................",
+    "...............................",
+    "..............................."
+  ],
+  "machines": [
+    {
+      "mtype": "grain_bin",
+      "pos": [
+        0,
+        2
+      ],
+      "orientation": 0
+    },
+    {
+      "mtype": "mill",
+      "pos": [
+        1,
+        0
+      ],
+      "orientation": 0
+    },
+    {
+      "mtype": "liquid_storage",
+      "pos": [
+        4,
+        2
+      ],
+      "orientation": 0
+    },
+    {
+      "mtype": "mixer",
+      "pos": [5, 0],
+      "orientation": 0
+    },
+    {
+      "mtype": "filter",
+      "pos": [9, 0],
+      "orientation": 0
+    },
+    {
+      "mtype": "liquid_chute",
+      "pos": [10, 2],
+      "orientation": 0
+    },
+    {
+      "mtype": "boiler",
+      "pos": [13,0],
+      "orientation": 0
+    },
+    {
+      "mtype": "liquid_chute",
+      "pos": [14, 2],
+      "orientation": 0
+    },
+    {
+      "mtype": "mixer",
+      "pos": [17,0],
+      "orientation": 0
+    },
+    {
+      "mtype": "liquid_chute",
+      "pos": [18, 2],
+      "orientation": 0
+    },
+    {
+      "mtype": "boiler",
+      "pos": [21, 0],
+      "orientation": 0
+    },
+    {
+      "mtype": "filter",
+      "pos": [25,0],
+      "orientation": 0
+    },
+    {
+      "mtype": "liquid_chute",
+      "pos": [26, 2],
+      "orientation": 0
+    },
+    {
+      "mtype": "boiler",
+      "pos": [29,0],
+      "orientation": 0
+    },
+    {
+      "mtype": "liquid_storage",
+      "pos": [28, 2],
+      "orientation": 0
+    },
+    {
+      "mtype": "liquid_chute",
+      "pos": [30, 2],
+      "orientation": 0
+    }
+  ],
+  "timesteps": 6,
+  "agent_limit": 100
+}

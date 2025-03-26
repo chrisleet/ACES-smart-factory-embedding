@@ -1,0 +1,45 @@
+{
+  "tokens": ["API", "Excipient", "Lubricant", "Milled_Compound", "Mixed_Compound", "Granulated_Compound", "Dried_Compound"],
+  "processes": [
+    {
+      "name": "API_In",
+      "inputs": [],
+      "outputs": ["API"]
+    },
+    {
+      "name": "Excipient_In",
+      "inputs": [],
+      "outputs": ["Excipient"]
+    },
+    {
+      "name": "Lubricant_In",
+      "inputs": [],
+      "outputs": ["Lubricant"]
+    },
+    {
+      "name": "Mill_AE",
+      "inputs": ["API", "Excipient"],
+      "outputs": ["Milled_Compound"]
+    },
+    {
+      "name": "Mix",
+      "inputs": ["Milled_Compound", "Lubricant"],
+      "outputs": ["Mixed_Compound"]
+    },
+    {
+      "name": "Granulate",
+      "inputs": ["Mixed_Compound"],
+      "outputs": ["Granulated_Compound"]
+    },
+    {
+      "name": "Dry",
+      "inputs": ["Granulated_Compound"],
+      "outputs": ["Dried_Compound"]
+    },
+    {
+      "name": "Consume",
+      "inputs": ["Dried_Compound"],
+      "outputs": []
+    }
+  ]
+}

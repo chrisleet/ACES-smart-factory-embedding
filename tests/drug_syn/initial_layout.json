@@ -1,0 +1,100 @@
+{
+  "floorplan": [
+    "..............",
+    "..............",
+    "..............",
+    ".............."
+  ],
+  "machines": [
+    {
+      "mtype": "liquid_storage",
+      "pos": [2,1],
+      "orientation": 0
+    },
+    {
+      "mtype": "liquid_storage",
+      "pos": [2,3],
+      "orientation": 0
+    },
+    {
+      "mtype": "chemical_reactor",
+      "pos": [2,0],
+      "orientation": 0
+    },
+    {
+      "mtype": "chemical_reactor",
+      "pos": [2,2],
+      "orientation": 0
+    },
+
+
+    {
+      "mtype": "liquid_storage",
+      "pos": [5,0],
+      "orientation": 0
+    },
+    {
+      "mtype": "liquid_storage",
+      "pos": [5,2],
+      "orientation": 0
+    },
+    {
+      "mtype": "filter",
+      "pos": [5,1],
+      "orientation": 0
+    },
+    {
+      "mtype": "filter",
+      "pos": [5,3],
+      "orientation": 0
+    },
+
+
+    {
+      "mtype": "chemical_reactor",
+      "pos": [8,0],
+      "orientation": 0
+    },
+    {
+      "mtype": "chemical_reactor",
+      "pos": [8,2],
+      "orientation": 0
+    },
+
+
+    {
+      "mtype": "liquid_storage",
+      "pos": [8,1],
+      "orientation": 180
+    },
+    {
+      "mtype": "liquid_storage",
+      "pos": [8,3],
+      "orientation": 180
+    },
+    {
+      "mtype": "chemical_reactor",
+      "pos": [11,0],
+      "orientation": 0
+    },
+    {
+      "mtype": "chemical_reactor",
+      "pos": [11,2],
+      "orientation": 0
+    },
+
+
+    {
+      "mtype": "liquid_chute",
+      "pos": [11,1],
+      "orientation": 0
+    },
+    {
+      "mtype": "liquid_chute",
+      "pos": [11,3],
+      "orientation": 0
+    }
+
+  ],
+  "agent_limit": 100
+}

@@ -1,0 +1,11 @@
+{
+  "blueprints_path":  "tests/beer_from_malt_big/blueprints.json", 
+  "layout_path":      "tests/beer_from_malt_big/initial_layout.json",
+  "procedure_path":   "tests/beer_from_malt_big/procedure.json",
+  "plan_path":        "visualizer/tmp/plan.json",
+  "vis_html":         "visualizer/visualizer/static/vis.html",
+  "vis_lock_timeout": 2,
+  "vis_map":          "visualizer/tmp/map.json",
+  "vis_state":        "visualizer/tmp/state.json",
+  "vis_state_lock":   "visualizer/tmp/state_lock.lock"
+}

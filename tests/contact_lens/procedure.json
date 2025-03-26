@@ -1,0 +1,35 @@
+{
+  "tokens": [ "rod", "button", "semi_finished_CL", "CL", "hydrated_CL"],
+  "processes": [
+    {
+      "name": "retrieve_rod",
+      "inputs": [],
+      "outputs": ["rod"]
+    },
+    {
+      "name": "cutting",
+      "inputs": [],
+      "outputs": ["button"]
+    },
+    {
+      "name": "mould_on_lathe",
+      "inputs": ["button"],
+      "outputs": ["semi_finished_CL"]
+    },
+    {
+      "name": "polish",
+      "inputs": ["semi_finished_CL"],
+      "outputs": ["CL"]
+    },
+    {
+      "name": "hydrate",
+      "inputs": ["CL"],
+      "outputs": ["hydrated_CL"]
+    },
+    {
+      "name": "package",
+      "inputs": ["hydrated_CL"],
+      "outputs": []
+    }
+  ]
+}

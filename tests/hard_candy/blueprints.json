@@ -1,0 +1,32 @@
+{
+  "blueprints": [
+    {
+      "mtype"           : "Feeder",
+      "pname_to_runtime": {"Sugar_In":1, 
+                           "Glucose_Syrup_In":1, 
+                           "Coloring_In":1},
+      "footprint"       : ["ao"]
+    },
+    {
+      "mtype"           : "Hot_Plate",
+      "pname_to_runtime": {"Boiling":1, 
+                           "Mixing":1},
+      "footprint"       : ["iao"]
+    },
+    {
+      "mtype"           : "Vaccuum_Former",
+      "pname_to_runtime": {"Vaccuum":1},
+      "footprint"       : ["iao"]
+    },
+    {
+      "mtype"           : "Cooler",
+      "pname_to_runtime": {"Cooling":1},
+      "footprint"       : ["iao"]
+    },
+    {
+      "mtype"           : "Chute",
+      "pname_to_runtime": {"Packaging": 1},
+      "footprint"       : ["ai"]
+    }
+  ]
+}

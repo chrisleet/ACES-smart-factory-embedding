@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+        <title>Multirobot Simulator</title>
+        <style>
+
+          body {
+            background: white;
+          }
+
+          h1 {
+            text-align: center;
+            font-family: baskerville;
+            color: #323232;
+            font-weight:normal;
+            font-size:40px;
+          }
+
+          #simulator_title {         
+            text-align: center;
+            font-family: helvetica;
+            color: #323232;
+            font-weight:normal;
+            font-size:70px;
+          }
+
+          #sim_table{
+            margin-left: auto;
+            margin-right: auto;
+            width: 10%;
+            border: 1px solid black;
+            border-collapse:collapse;
+            table-layout: fixed;
+          }
+
+          .width-variable {
+            border: 1px solid white;
+            border-right: 1px solid white;
+            overflow: hidden;
+            width: auto;
+            background: red;
+            white-space: nowrap;
+          }
+
+          .width-fixed {
+            border: 1px solid #323232;
+            overflow: hidden;
+            width: 40px;
+            height: 40px;
+            background: white;
+            font-family: helvetica;
+            font-weight: bold;
+            font-size:24px;
+            color: black;
+          }
+
+          .margin-bottom {
+            border: 1px solid white;
+            text-align: center;
+            background: white;
+            font-weight: normal;
+          }
+
+          .margin-left {
+            border: 1px solid white;
+            border-right: 1px solid #323232;
+            text-align: center;
+            background: white;
+            font-weight: normal;
+          }
+
+          .grid-cell {
+            text-align: center;
+          }
+
+          .origin-cell-variable {
+            border: 1px solid white;
+            border-right: 1px solid white;
+          }
+
+          .origin-cell-fixed {
+            border: 1px solid white;
+            border-bottom: 1px solid white;
+          }
+
+          #legend_table{
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid black;
+            border-collapse:collapse;
+            table-layout: fixed;
+          }
+
+          .legend_label {
+            border: 1px solid #323232;
+            overflow: hidden;
+            background: white;
+            font-family: helvetica;
+            font-weight: normal;
+            font-size:25px;
+            color: black;
+          }
+
+          #stat_para {         
+            text-align: center;
+            font-family: helvetica;
+            color: #323232;
+            font-weight:normal;
+            font-size:45px;
+          }
+
+          #time{
+            margin-left: auto;
+            margin-right: auto;
+            width: 40%;
+          }
+
+          #state{
+            margin-left: auto;
+            margin-right: auto;
+            width: 40%;
+          }
+
+          .state_column {
+            float: left;
+            width: 33.3%;
+          }
+
+    </style>
+    </head>
+
+    <body>
+      <div>
+      <p id = "simulator_title">Multirobot Simulator</p>
+      <table id = "sim_table"></table>
+      <table id = "legend_table"></table>
+      <div   id = "time_and_rate"></div>
+      </div>
+      
+    </body>
+
+    <script type = "text/javascript">
+
+      // Builds basic table
+      function build_table(nrows, ncols){
+        
+        // Table to visualize workspace with
+        var table = document.getElementById("sim_table");
+        delete_children(table.innerHTML);
+
+        // 2D array to access and modify table cells
+        var cells = new Array(nrows);
+
+        for (var rr=0; rr<nrows+1; rr++) {
+
+          var x=table.insertRow(rr);
+
+          // Add buffer cell to keep remaining cells fixed width
+          var y = x.insertCell(0);
+          y.classList.add('width-variable');
+
+          // If regular row
+          if (rr < nrows) {
+
+            // Add array to store row's grid cells
+            cells[nrows-rr-1] = new Array(ncols);
+
+            // Add regular grid cells
+            for(var cc=1; cc<ncols+1; cc++) {
+              var y = x.insertCell(cc);
+              y.classList.add('width-fixed');
+              y.classList.add('grid-cell');
+              cells[nrows-rr-1][cc-1] = y;
+              // y.id = coords_to_coordstr(cc-1, nrows-r-1);
+              // y.innerHTML = coords_to_coordstr(c-1, nrows-r-1);
+            }
+
+            // Add margin cell (to contain x-axis value)
+            var y = x.insertCell(1);
+            y.classList.add('width-fixed');
+            y.classList.add('margin-left');
+            y.innerHTML = nrows-rr-1;
+
+          // If x-axis margin row (contains x-axis values)
+          } else {
+
+            // Black out right hand border from buffer cell
+            y.classList.add('origin-cell-variable');
+
+            // Add margin cell (to contain y-axis value)
+            for(var cc=1; cc<ncols+1; cc++) {
+              var y = x.insertCell(cc);
+              y.classList.add('width-fixed');
+              y.classList.add('margin-bottom')
+              y.innerHTML = (cc-1);
+            }
+
+            // Add origin cell
+            var y = x.insertCell(1);
+            y.classList.add('width-fixed');
+            y.classList.add('origin-cell-fixed');
+            y.innerHTML = "";
+          }
+        } // for var r=0...
+
+        return cells
+
+      } // end build_table
+
+
+      // Builds legend
+      function build_legend(token_to_color, token_to_symbol){
+
+        // Only build legend once
+        if(built_legend) { return; }
+        built_legend = true;
+
+
+        // Compute the number of rows and columns
+        nrows = 3;
+        ncols = ceil(Object.keys(token_to_color).length / nrows) * 2;
+
+        // Generate table
+        var table = document.getElementById("legend_table");     // Table body
+        var cells = new Array(nrows);                            // 2D array to access table cells
+
+        for (var rr = 0; rr < nrows; rr++) {
+
+          console.log("rr is", rr)
+
+          var x             = table.insertRow(rr);               // Add row to table
+          cells[nrows-rr-1] = new Array(ncols);                  // Add row to array to access table's grid cells
+
+          for(var cc = 0; cc < ncols; cc++) {
+
+            var y                    = x.insertCell(cc);
+            cells[nrows-rr-1][cc]  = y;
+
+            if (cc % 2 == 0) {
+              y.classList.add('width-fixed');
+              y.classList.add('grid-cell');
+            } else {
+              y.classList.add('legend_label');
+            }
+          }
+        }
+
+      // Fill table
+      rr = 0;
+      cc = 0;
+
+      for (const [token, color] of Object.entries(token_to_color)) {
+
+        image = cells[nrows-rr-1][cc]
+        label = cells[nrows-rr-1][cc+1]
+
+        image.style.backgroundColor = color;
+        add_text(image, token_to_symbol[token]);
+        add_text(label, token);
+
+        rr += 1;
+        if (rr >= nrows) {
+          rr = 0;
+          cc += 2;
+        }
+      }
+
+      } // end build_legend
+
+      // Ceiling function
+      function ceil(num) {
+        var floor = num | 0;
+        return num > floor ? floor + 1 : floor;
+      }
+  
+
+
+      // Removes all children from node in DOM
+      function delete_children(element) {
+        while (element.firstChild) {
+          element.removeChild(element.lastChild);
+        }
+      }
+
+
+      // Draws the value of each cell onto the map
+      function draw_map(my_map, inputs, outputs, anchors, cells) {
+        
+        // Cell color scheme
+        empty_tile    = "#ffffff";
+        input_tile    = "#d6f2f5";
+        output_tile   = "#fff3bb"; 
+        chassis_tile  = "#d5d5d5";
+        unknown_tile  = "#ffdeb3"
+
+        let cell_type    = null;       // The type of the current cell
+        let cell         = null;       // The current cell
+
+        // Row 0 is stored at the bottom of the warehouse map, row w.h-1 at the top.
+        for (let rr = 0; rr < cells.length; rr++) {
+          for (let cc = 0; cc < cells[rr].length; cc++) {
+
+            cell_type       = my_map[cells.length-rr-1][cc];
+            cell            = cells[rr][cc];
+            delete_children(cell);
+
+            switch (cell_type) {
+
+              // Empty space tiles are white
+              case ".":
+                cell.style.backgroundColor = empty_tile;
+                break;
+
+              // Input tiles are light blue
+              case "i":
+                cell.style.backgroundColor = input_tile;
+                break;
+
+              // Output tiles are light yellow
+              case "o":
+                cell.style.backgroundColor = output_tile;
+                break;
+
+              // Chassis tiles are grey
+              case "c":
+              case "a":
+                cell.style.backgroundColor = chassis_tile;
+                break;
+
+              // Otherwise, tile is unknown. Set its background color
+              // to light organe, and label it with its column number.
+              default:
+                cell.style.backgroundColor = unknown_tile;
+                add_text(cell, cc);
+
+            } // Switch statement
+          } // For each column in a row in the warehouse map
+        } // For each row in the warehouse map
+
+        
+        // Add annotations to map
+        //add_annotation(inputs);
+        //add_annotation(outputs);
+        add_annotation(anchors);
+        
+      } // function
+
+
+      // Adds text to a cell
+      function add_text(cell, text) {
+        cell.appendChild(document.createTextNode(text));
+      }
+
+
+      // Adds an annotation to the map
+      function add_annotation(annotation) {
+        for (const [mid, pt] of Object.entries(annotation)) {
+          cc = pt[0]
+          rr = pt[1]
+          add_text(cells[rr][cc], mid);
+        }
+      }
+
+
+      function update_display(my_map, response, inputs, outputs, anchors, cells) {
+        draw_map(my_map, inputs, outputs, anchors, cells);
+        draw_tokens(response.plan, response.token_to_color, response.token_to_symbol, cells);
+        build_legend(response.token_to_color, response.token_to_symbol);
+      }
+
+      
+      // Draws each token in the smart factory
+      function draw_tokens(plan, token_to_color, token_to_symbol, cells) {
+
+        let cc = null, rr = null;
+
+        for (const [token, pts] of Object.entries(plan)) {
+          for (let ii = 0; ii < pts.length; ii++) {
+          
+            cc   = pts[ii][0];
+            rr   = pts[ii][1];
+            cell = cells[rr][cc];
+
+            delete_children(cell);
+            cell.style.backgroundColor = token_to_color[token];
+            add_text(cells[rr][cc], token_to_symbol[token]);
+
+          }
+        } 
+      } 
+
+      function add_time(t, timesteps) {
+        let div = document.getElementById("time_and_rate");
+        delete_children(div);
+        div.appendChild(document.createTextNode("Time: " + t + "/" + timesteps));
+      }
+
+
+
+      var my_map       = null;                              // The global map
+      var cells        = null;                              // The cells in the display
+      var inputs       = null;                              // mid -> input tile position
+      var outputs      = null;                              // mid -> output tile position
+      var anchors      = null;                              // mid -> anchor tile position
+      var built_legend = false;                             // flag designating if legend built
+
+      var fmap_f    = "visualizer/tmp/map.json";         // The global map file
+      var state_f   = "visualizer/tmp/state.json";       // The state file
+
+      // Get updated warehouse state from simulator
+      var request         = new XMLHttpRequest();
+      var req_returned    = true;
+
+      request.onload = function() {
+
+        if (this.readyState == 4) {
+          req_returned         = true;
+
+          if(this.status == 200) {
+            //console.log(this.responseText);
+            response           = JSON.parse(this.responseText);
+            console.log(response);
+            
+            // If response contains map, response is vis_gmap. If gmap has not
+            // already been received, save gmap, build table.
+            if ("fmap" in response && cells == null) {
+              my_map       = response.fmap;
+              inputs       = response.inputs;
+              outputs      = response.outputs;
+              anchors      = response.anchors;
+              nrows        = my_map.length;
+              ncols        = my_map[0].length;
+              cells        = build_table(nrows, ncols);
+
+              draw_map(my_map, inputs, outputs, anchors, cells);
+
+            // If response contains agents, response is state. Update display
+            // with new shard system state.
+            } else {
+              console.log(response);
+              update_display(my_map, response, inputs, outputs, anchors, cells);
+            }
+          } 
+        }
+      };
+
+      request.onerror = function(e) {
+        req_returned  = true;
+      }
+
+      // If we haven't loaded the workspace map yet (wmap == null), request 
+      // vis_map.json, get the map's dimensions, and build the display table.
+      // Otherwise, request vis_agents.json and update the display table with
+      // the workspace's current state.
+      setInterval(function(){
+        var target_file = (my_map == null ? fmap_f : state_f);
+        if(req_returned){
+          request.open('GET', target_file, true); //true makes request async
+          req_returned  = false; 
+          request.send();
+        }
+      }, 50); // rate limit here (timer in milliseconds)
+
+    </script>
+</html>

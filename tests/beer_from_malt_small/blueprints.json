@@ -1,0 +1,58 @@
+{
+  "blueprints": [
+    {
+      "mtype": "liquid_storage",
+      "pname_to_runtime": {
+        "retrieve_hot_water": 1
+      },
+      "footprint": ["a","o"]
+    },
+    {
+      "mtype": "grain_bin",
+      "pname_to_runtime": {
+        "retrieve_malt": 1
+      },
+      "footprint": ["a", "o"]
+    },
+    {
+      "mtype": "mill",
+      "pname_to_runtime": {
+        "mill_malt": 1
+      },
+      "footprint": ["iao"]
+    },
+    {
+      "mtype": "mixer",
+      "pname_to_runtime": {
+        "mash_malt": 1,
+        "whirlpool": 1
+      },
+      "footprint": ["iao"]
+    },
+    {
+      "mtype": "filter",
+      "pname_to_runtime": {
+        "filter_mash": 1,
+        "filter_ferment": 1
+      },
+      "footprint": ["iao"]
+    },
+    {
+      "mtype": "boiler",
+      "pname_to_runtime": {
+        "boil_wort": 1,
+        "ferment": 1,
+        "pasteurize": 1
+      },
+      "footprint": ["iao"]
+    },
+    {
+      "mtype": "liquid_chute",
+      "pname_to_runtime": {
+        "bin_waste": 1,
+        "store_output": 1
+      },
+      "footprint": ["a", "i"]
+    }
+  ]
+}

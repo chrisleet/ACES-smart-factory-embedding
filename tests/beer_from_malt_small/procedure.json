@@ -1,0 +1,69 @@
+{
+  "tokens": [ "malt",
+    "milled_malt", "mashed_malt", "wort", "reduced_wort", "seperated_wort", "fermented_wort", "filtered_ferment", "unpasteurized_beer",
+    "hot_water", "cooling_agent",
+    "waste", "output"
+  ],
+  "processes": [
+    {
+      "name": "retrieve_malt",
+      "inputs": [],
+      "outputs": ["malt"]
+    },
+    {
+      "name": "retrieve_hot_water",
+      "inputs": [],
+      "outputs": ["hot_water"]
+    },
+    {
+      "name": "mill_malt",
+      "inputs": ["malt"],
+      "outputs": ["milled_malt"]
+    },
+    {
+      "name": "mash_malt",
+      "inputs": ["milled_malt", "hot_water"],
+      "outputs": ["mashed_malt"]
+    },
+    {
+      "name": "filter_mash",
+      "inputs": ["mashed_malt"],
+      "outputs": ["waste", "wort"]
+    },
+    {
+      "name": "boil_wort",
+      "inputs": ["wort"],
+      "outputs": ["waste", "reduced_wort"]
+    },
+    {
+      "name": "whirlpool",
+      "inputs": ["reduced_wort"],
+      "outputs": ["waste", "seperated_wort"]
+    },
+    {
+      "name": "ferment",
+      "inputs": ["cooling_agent", "seperated_wort"],
+      "outputs": ["cooling_agent", "fermented_wort"]
+    },
+    {
+      "name": "filter_ferment",
+      "inputs": ["fermented_wort"],
+      "outputs": ["waste", "unpasteurized_beer"]
+    },
+    {
+      "name": "pasteurize",
+      "inputs": ["unpasteurized_beer", "hot_water"],
+      "outputs": ["output"]
+    },
+    {
+      "name": "bin_waste",
+      "inputs": ["waste"],
+      "outputs": []
+    },
+    {
+      "name": "store_output",
+      "inputs": ["output"],
+      "outputs": []
+    }
+  ]
+}

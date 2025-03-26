@@ -1,0 +1,167 @@
+{
+  "floorplan": [
+    "..........",
+    "..........",
+    "..........",
+    "..........",
+    "..........",
+    "..........",
+    "..........",
+    "..........",
+    "..........",
+    "..........",
+    "..........",
+    ".........."
+  ],
+  "machines": [
+
+    { "mtype": "Feeder",
+      "pos": [0,0],
+      "orientation": 0 },
+
+    { "mtype": "Feeder",
+      "pos": [0,1],
+      "orientation": 0 },
+
+    { "mtype": "Feeder",
+      "pos": [0,3],
+      "orientation": 0 },
+
+    { "mtype": "Chute",
+      "pos": [0,4],
+      "orientation": 0 },
+
+
+
+    { "mtype": "Hot_Plate",
+      "pos": [3,0],
+      "orientation": 0 },
+
+    { "mtype": "Vaccuum_Former",
+      "pos": [3,1],
+      "orientation": 180 },
+
+    { "mtype": "Hot_Plate",
+      "pos": [3,3],
+      "orientation": 0 },
+
+    { "mtype": "Cooler",
+      "pos": [3,4],
+      "orientation": 180 },
+
+
+
+
+    { "mtype": "Hot_Plate",
+      "pos": [6,0],
+      "orientation": 0 },
+
+    { "mtype": "Vaccuum_Former",
+      "pos": [6,1],
+      "orientation": 180 },
+
+    { "mtype": "Hot_Plate",
+      "pos": [6,3],
+      "orientation": 0 },
+
+    { "mtype": "Cooler",
+      "pos": [6,4],
+      "orientation": 180 },
+
+
+
+
+     { "mtype": "Feeder",
+      "pos": [9,0],
+      "orientation": 180 },
+
+    { "mtype": "Feeder",
+      "pos": [9,1],
+      "orientation": 180 },
+
+    { "mtype": "Feeder",
+      "pos": [9,3],
+      "orientation": 180 },
+
+    { "mtype": "Chute",
+      "pos": [9,4],
+      "orientation": 180 },
+
+
+    { "mtype": "Feeder",
+      "pos": [0,6],
+      "orientation": 0 },
+
+    { "mtype": "Feeder",
+      "pos": [0,7],
+      "orientation": 0 },
+
+    { "mtype": "Feeder",
+      "pos": [0,9],
+      "orientation": 0 },
+
+    { "mtype": "Chute",
+      "pos": [0,10],
+      "orientation": 0 },
+
+
+
+    { "mtype": "Hot_Plate",
+      "pos": [3,6],
+      "orientation": 0 },
+
+    { "mtype": "Vaccuum_Former",
+      "pos": [3,7],
+      "orientation": 180 },
+
+    { "mtype": "Hot_Plate",
+      "pos": [3,9],
+      "orientation": 0 },
+
+    { "mtype": "Cooler",
+      "pos": [3,10],
+      "orientation": 180 },
+
+
+
+
+    { "mtype": "Hot_Plate",
+      "pos": [5,6],
+      "orientation": 0 },
+
+    { "mtype": "Vaccuum_Former",
+      "pos": [5,7],
+      "orientation": 180 },
+
+    { "mtype": "Hot_Plate",
+      "pos": [5,9],
+      "orientation": 0 },
+
+    { "mtype": "Cooler",
+      "pos": [5,10],
+      "orientation": 180 },
+
+
+
+
+     { "mtype": "Feeder",
+      "pos": [9,6],
+      "orientation": 180 },
+
+    { "mtype": "Feeder",
+      "pos": [9,7],
+      "orientation": 180 },
+
+    { "mtype": "Feeder",
+      "pos": [9,9],
+      "orientation": 180 },
+
+    { "mtype": "Chute",
+      "pos": [9,10],
+      "orientation": 180 }
+
+
+  ],
+  "timesteps": 4,
+  "agent_limit": 100
+}

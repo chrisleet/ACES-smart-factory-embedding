@@ -1,0 +1,29 @@
+{
+  "blueprints": [
+    {
+      "mtype": "Feeder",
+      "pname_to_runtime": {"API_In": 1, "Excipient_In" : 1, "Lubricant_In" : 1},
+      "footprint": ["ao"]
+    },
+    {
+      "mtype": "Mill",
+      "pname_to_runtime": {"Mill_AE": 2},
+      "footprint": ["iao"]
+    },
+    {
+      "mtype": "Mixer",
+      "pname_to_runtime": {"Mix": 2, "Granulate": 2},
+      "footprint": ["iao"]
+    },
+    {
+      "mtype": "Dryer",
+      "pname_to_runtime": {"Dry": 2},
+      "footprint": ["iao"]
+    },
+    {
+      "mtype": "Tablet_Press",
+      "pname_to_runtime": {"Consume": 1},
+      "footprint": ["ia"]
+    }
+  ]
+}
